@@ -10,7 +10,7 @@ from scipy.interpolate import UnivariateSpline
 
 rho_m = 8000 # Metal density, kg / m^3
 r_min = 0.  # Minimum radius for pdf, in meters
-gamma = 1.3082 #Geometric constant such that sigma_r = r_eff for a spherical clump
+gamma = 1.1248 #Geometric constant such that sigma_r = r_eff for a spherical clump
 Shape = 4 #Choose shape for mass as a function of time, 1 = Sigmoid, 2 = Sphere, 3 = two clumps with sigmoids, 4 = data from Miki's simulation files
 Clumps = 0 #1 = divide into 2 clumps, 0 = do not divide into clumps
 Mmars = 6.41e23 #kg
