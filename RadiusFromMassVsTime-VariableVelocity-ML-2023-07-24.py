@@ -75,7 +75,7 @@ if Shape == 4 : # read from a file
     
 
 # Define the window size for the moving average filter
-    window_size = 10
+    window_size = 1
 
 # Apply the moving average filter
     Mass = np.convolve(Mass_data, np.ones(window_size)/window_size, mode='same')
