@@ -81,9 +81,7 @@ if Shape == 4 : # read from a file
     Mass = np.convolve(Mass_data, np.ones(window_size)/window_size, mode='same')
     # Making it smooth so that we can compute dM/dt later
     
-    Uimp = 6000.0 #Impact speed in m /s
     U = Velocity_data # Velocity of metal entering the mantle in m / s
-    U[U==0] = Uimp#If U = 0, set U to impact velocity
     #r_eff = 1.e6 # Effective spherical radius of total metal mass entering the mantle, in meters
     M_tot = Mass_data[-1]* 0.3 *  0.295 * Mmars #MN: I am hard-cording this here, which is not quite right
     r_eff = (M_tot/(4.0/3.0 * np.pi * rho_m))**0.333333  
@@ -129,6 +127,12 @@ Time  = Time[valid_indices]
 dM_dt = dM_dt[valid_indices]
 U     = U[valid_indices]
 
+valid_indices = np.where(U > 0) #removing U = 0 (this happens at the beginning)
+
+Mass  = Mass[valid_indices]
+Time  = Time[valid_indices]
+dM_dt = dM_dt[valid_indices]
+U     = U[valid_indices]
 
 
 #Compute typical width of plume entering the mantle
