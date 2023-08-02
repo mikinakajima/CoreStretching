@@ -221,8 +221,9 @@ dMdt_mean         = np.sum(dM_dt       *dM_dt*Dt)/M_tot #Mean accretion rate, kg
 U_mean            = np.sum(U           *dM_dt*Dt)/M_tot#Mean plume velocity, m/s
 Gamma_Morton_mean = np.sum(Gamma_Morton*dM_dt*Dt)/M_tot#Mean Gamma parameter, dimensionless
 
-M2 = Compute_moment_n(p,r,Dr,2) #2nd moment of the pdf
-PlumeRadius_rms  = M2**0.5 # RMS characteristic radius of the plume over the entire time window, in meters
+# commenting out older plume model
+# M2 = Compute_moment_n(p,r,Dr,2) #2nd moment of the pdf
+# PlumeRadius_rms  = M2**0.5 # RMS characteristic radius of the plume over the entire time window, in meters
 PlumeRadius_rms  = (np.sum(Plume_Radius**2*dM_dt*Dt)/M_tot)**0.5 #RMS plume radius, in m 
 dMdt_rms         = (np.sum(dM_dt**2       *dM_dt*Dt)/M_tot)**0.5 #RMS accretion rate, kg / s
 U_rms            = (np.sum(U**2           *dM_dt*Dt)/M_tot)**0.5#RMS plume velocity, m/s
