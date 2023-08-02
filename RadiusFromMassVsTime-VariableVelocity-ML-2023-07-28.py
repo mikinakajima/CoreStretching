@@ -72,9 +72,9 @@ if Shape == 3 :
     
 if Shape == 4 : # read from a file
     data = np.loadtxt('Accretion_Ratios/sphg9__01_HTR-accRatios.txt', skiprows=1,usecols=[0,1,2])
-    Time_data     = data[:10, 0] * 3600 # Time converted into seconds 
-    Mass_data     = data[:10, 1] #unit less
-    Velocity_data = data[:10,2] #Velocity in m / s
+    Time_data     = data[:, 0] * 3600 # Time converted into seconds 
+    Mass_data     = data[:, 1] #unit less
+    Velocity_data = data[:,2] #Velocity in m / s
     Time = Time_data
     #Time = np.linspace(Time_data[0],Time_data[0]  )
     
